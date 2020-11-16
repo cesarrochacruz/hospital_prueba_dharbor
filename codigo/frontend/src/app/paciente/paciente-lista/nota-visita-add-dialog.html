@@ -1,0 +1,54 @@
+<div class="dialog-add-nota-visita">
+  <form [formGroup]="validatorForm" (ngSubmit)="guardarDatos(validatorForm.value)" >
+
+
+    <h3>Nueva nota de visita</h3>
+
+    
+
+
+    <mat-form-field>
+        <mat-label>Fecha de la nota de visita</mat-label>
+        <input matInput [ngxMatDatetimePicker]="notaFecha" class="form-control" readonly  
+        [(ngModel)]="data.notaFecha"
+        placeholder="Selecciona una fecha y horario"
+        formControlName="notaFecha" [ngClass]="{ 'is-invalid': submitted && f.notaFecha.errors }" >
+        
+        <mat-datepicker-toggle matSuffix [for]="notaFecha"></mat-datepicker-toggle>
+    
+        <ngx-mat-datetime-picker #notaFecha></ngx-mat-datetime-picker>
+        <div *ngIf="submitted && f.notaFecha.errors" class="invalid-feedback">
+            <div *ngIf="f.notaFecha.errors.required">Fecha de naciemiento es requerida</div>
+        </div> 
+    </mat-form-field>
+
+
+
+
+    
+    
+    <div class="form-group">
+        <mat-form-field appearance="standard">
+        <mat-label>Nota de visita</mat-label>
+        <textarea  matInput placeholder="Ingrese el nombre la nota de visita" class="form-control" 
+          [(ngModel)]="data.notaDescripcion"  
+            formControlName="notaDescripcion" [ngClass]="{ 'is-invalid': submitted && f.notaDescripcion.errors }">
+        </textarea>
+        </mat-form-field>
+        <div *ngIf="submitted && f.notaDescripcion.errors" class="invalid-feedback">
+            <div *ngIf="f.notaDescripcion.errors.required">Nombre es requerido</div>
+        </div>
+    </div>
+
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary"  [mat-dialog-close]="data" cdkFocusInitial>Guardar</button>
+    
+    <button mat-raised-button color="primary" (click)="cancelarNuevaNotaVisita()">Cancelar</button>
+    
+    <!--<button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>-->
+  </div>
+    
+    
+  </form>
+  
+</div>

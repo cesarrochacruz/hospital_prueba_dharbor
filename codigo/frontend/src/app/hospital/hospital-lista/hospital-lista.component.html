@@ -1,0 +1,45 @@
+<h2>Lista de Hospitales</h2>
+<button mat-raised-button color="primary" (click)="crear()" style="display: inline;">Agregar Hospital</button>
+
+<div class="form-busqueda">
+  
+  Nombre:<input matInput color="accent" placeholder="Nombre" [(ngModel)]=nombreBusqueda />&nbsp;&nbsp;
+  <button mat-raised-button color="primary" (click)="buscar()">Buscar</button>
+
+</div>
+
+<mat-table [dataSource]="hospitales">
+    
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="direccion">
+      <mat-header-cell *matHeaderCellDef> Dirección </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.direccion}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="botones">
+        <mat-header-cell *matHeaderCellDef>Doctores / Edición / Eliminar</mat-header-cell>
+        <mat-cell *matCellDef="let row"> 
+            
+            <button mat-fab color="primary" aria-label="Listar doctores" (click)="mostrarDoctores(row)">
+                <i class="material-icons md-24">face</i>
+            </button>
+
+            <button mat-fab color="primary" aria-label="Editar" (click)="editar(row)">
+                <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-fab color="warn" aria-label="Eliminar" (click)="eliminar(row)">
+                <mat-icon>delete</mat-icon>
+            </button>
+            
+        </mat-cell>
+      </ng-container>
+  
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="['nombre', 'direccion','botones']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['nombre', 'direccion','botones']"></mat-row>
+  </mat-table>

@@ -1,0 +1,39 @@
+<div class="container">
+    <h1>
+      {{title}}
+    </h1>
+  
+    <mat-card>
+        <mat-card-content>
+            <form [formGroup]="validatorForm" (ngSubmit)="onSubmit(validatorForm.value)" >
+
+                <div class="form-group">
+                    <mat-form-field appearance="standard">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Ingrese el nombre del hospital" class="form-control" formControlName="nombre" [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }">
+                    </mat-form-field>
+                    <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                        <div *ngIf="f.nombre.errors.required">Nombre es requerido</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field appearance="standard">
+                    <mat-label>Dirección</mat-label>
+                    <input matInput placeholder="Ingrese la dirección del hospital" class="form-control" formControlName="direccion" [ngClass]="{ 'is-invalid': submitted && f.direccion.errors }">
+                    </mat-form-field>
+                    <div *ngIf="submitted && f.direccion.errors" class="invalid-feedback">
+                        <div *ngIf="f.direccion.errors.required">Direccion es requerido</div>
+                    </div>
+                </div>
+                
+                <button mat-raised-button color="primary" type="submit">Guardar</button>
+                <button mat-raised-button color="primary" (click)="cancelar()">Cancelar</button>
+            </form>
+        </mat-card-content> 
+    </mat-card>
+  
+      
+  
+    
+</div>

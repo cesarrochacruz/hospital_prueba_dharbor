@@ -1,0 +1,25 @@
+.add_hospital {
+    float: right;
+    padding-bottom: 5px;
+    margin-top: -40px;
+    display: block;
+}
+.mat-column-nombre {
+    flex: 0 0 40% !important;
+    width: 40% !important;
+}
+.mat-column-direccion {
+    flex: 0 0 40% !important;
+    width: 40% !important;
+}
+.mat-column-botones {
+    
+    flex: 0 0 15% !important;
+    width: 15% !important;
+}
+.form-busqueda{
+    display: flex;
+    align-items:flex-end;
+    justify-content: flex-end;
+    padding-bottom: 8px;
+}

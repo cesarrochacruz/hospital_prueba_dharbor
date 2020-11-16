@@ -1,0 +1,57 @@
+<h2>Lista de Doctores</h2>
+<button *ngIf="hospitalId  && hospitalId!=0" mat-raised-button color="primary" (click)="crear()" style="display: inline;">Agregar Doctor</button>
+
+<div class="form-busqueda" *ngIf="!hospitalId  || hospitalId==0">
+  
+    Nombre:<input matInput color="accent" placeholder="Nombre" [(ngModel)]=nombreBusqueda />&nbsp;&nbsp;
+    Apellido:<input matInput color="accent" placeholder="Apellido" [(ngModel)]=apellidoBusqueda />&nbsp;&nbsp;
+    <button mat-raised-button color="primary" (click)="buscar()">Buscar</button>
+  
+</div>
+
+<mat-table [dataSource]="doctores">
+    
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nombre}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="apellido">
+      <mat-header-cell *matHeaderCellDef> Apellido </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.apellido}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="fechaNacimiento">
+      <mat-header-cell *matHeaderCellDef> Fecha de Nacimiento </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.fechaNacimiento}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="direccion">
+      <mat-header-cell *matHeaderCellDef> Dirección </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.direccion}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="botones">
+        <mat-header-cell *matHeaderCellDef>Pacientes / Editar / Eliminar</mat-header-cell>
+        <mat-cell *matCellDef="let row"> 
+            
+            <button mat-fab color="primary" aria-label="Listar pacientes" (click)="mostrarPacientes(row)">
+              <i class="material-icons md-24">assignment_ind</i>
+            </button>
+            
+            <button mat-fab color="primary" aria-label="Editar" (click)="editar(row)">
+                <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-fab color="warn" aria-label="Eliminar" (click)="eliminar(row)">
+                <mat-icon>delete</mat-icon>
+            </button>
+
+            
+        </mat-cell>
+      </ng-container>
+  
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="['nombre', 'apellido','fechaNacimiento', 'direccion','botones']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['nombre', 'apellido','fechaNacimiento', 'direccion','botones']"></mat-row>
+  </mat-table>
