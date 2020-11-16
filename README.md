@@ -54,6 +54,9 @@ DB_PASSWORD:12345
 		
 3.-Nuestra aplicación springboot java levantara en el puerto 9090 y con esto estaría disponible para que sea usado por el frontend.
 
+***URL: La URL disponible del backend sera***
+http://localhost:9090
+
 ***=(3)= INICIAR EL FRONTEND ==***
 
 ***Opción 1 por código***
@@ -73,3 +76,5 @@ ejecutar:	ng serve
 2.- Según como este configurado el servidor de aplicaciones se podrá acceder al "index.html" de nuestro frontend.
 
 
+***URL: La URL disponible del front sera***
+http://localhost:4200
