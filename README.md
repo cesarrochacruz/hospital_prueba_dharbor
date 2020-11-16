@@ -2,7 +2,7 @@
 Código de front y back para prueba de Digital Harbor
 
 ====================================
-===PEQUEÑO MANUAL DE INSTALACION====
+===PEQUEÑO MANUAL DE INSTALACIÓN====
 ====================================
 Para poder levantar la aplicación tendremos dos opciones, la primera el levantar mediante comando desplegando tanto el backen que está hecho en JAVA, y el frontend que está hecho en Angular.
 
